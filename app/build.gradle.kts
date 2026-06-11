@@ -11,8 +11,8 @@ android {
         applicationId = "app.settings.access"
         minSdk = 23
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = providers.gradleProperty("appVersionCode").getOrElse("2").toInt()
+        versionName = providers.gradleProperty("appVersionName").getOrElse("1.1")
     }
 
     buildTypes {
