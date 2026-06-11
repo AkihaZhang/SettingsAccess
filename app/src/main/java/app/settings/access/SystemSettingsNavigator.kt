@@ -11,14 +11,11 @@ internal object SystemSettingsNavigator {
     private const val SYSTEM_SETTINGS_PACKAGE = "com.android.settings"
 
     fun open(context: Context): Boolean {
-        val candidates = mutableListOf(
-            Intent(Settings.ACTION_SETTINGS),
+        val candidates = listOfNotNull(
             Intent(Settings.ACTION_SETTINGS).setPackage(SYSTEM_SETTINGS_PACKAGE),
+            context.packageManager.getLaunchIntentForPackage(SYSTEM_SETTINGS_PACKAGE),
+            Intent(Settings.ACTION_SETTINGS),
         )
-
-        context.packageManager.getLaunchIntentForPackage(SYSTEM_SETTINGS_PACKAGE)?.let {
-            candidates.add(it)
-        }
 
         return candidates.any { candidate -> tryStart(context, candidate) }
     }
