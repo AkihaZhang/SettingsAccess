@@ -4,9 +4,7 @@
 
 ## 下载
 
-前往 [Releases](https://github.com/AkihaZhang/SettingsAccess/releases/latest)，下载 `SettingsAccess-v1.0.apk`。
-
-这是一个通用 APK，不需要根据处理器型号选择版本。
+前往 [最新版本](https://github.com/AkihaZhang/SettingsAccess/releases/latest)，在页面底部的 Assets 中下载 APK 文件。
 
 ## 使用方法
 
