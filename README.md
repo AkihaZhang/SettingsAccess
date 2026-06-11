@@ -1,39 +1,37 @@
 # SettingsAccess
 
-有些 Android 设备隐藏了系统自带的“设置”入口。安装本应用后，应用列表中会出现一个新的“设置”图标，点击即可尝试打开原生 Android 设置。
+English | [简体中文](README.zh-CN.md)
 
-## 下载
+Some Android devices hide the built-in system Settings entry. SettingsAccess
+adds a Settings icon to your app list and attempts to open the native Android
+Settings app when tapped.
 
-前往 [最新版本](https://github.com/AkihaZhang/SettingsAccess/releases/latest)，在页面底部的 Assets 中下载 APK 文件。
+## Download
 
-## 使用方法
+Go to the [latest release](https://github.com/AkihaZhang/SettingsAccess/releases/latest)
+and download the APK file from the Assets section.
 
-1. 下载并安装 APK。
-2. 在桌面或应用列表中找到“设置”。
-3. 点击图标，进入设备原生的 Android 设置。
+## How to use
 
-本应用只负责打开系统设置，启动后不会显示自己的界面。
+1. Download and install the APK.
+2. Find **Settings** on your home screen or in your app list.
+3. Tap the icon to open the native Android Settings app.
 
-## 适用设备
+SettingsAccess does not display its own interface. It closes immediately after
+opening the system Settings app.
 
-- 厂商隐藏了原生 Android 设置入口的手机、平板、阅读器或其他 Android 设备
-- Android 6.0 及以上版本
+## Compatibility
 
-如果厂商已经删除、停用或限制了系统设置组件，本应用也可能无法打开它。
+- Phones, tablets, e-readers, and other Android devices where the manufacturer
+  has hidden the native Settings entry
+- Android 6.0 or later
 
-## 隐私
+SettingsAccess may not work if the device manufacturer has removed, disabled,
+or restricted the system Settings component.
 
-- 不申请任何权限
-- 不连接网络
-- 不包含广告
-- 不收集或保存任何数据
+## Privacy
 
-## 开发
-
-项目使用 Kotlin 和 Android Framework，包名为 `app.settings.access`。
-
-```sh
-./gradlew lint assembleDebug assembleRelease
-```
-
-GitHub Actions 会自动检查并构建可安装的 Debug APK。正式发布的 Release APK 需要使用私有密钥签名。
+- Requires no permissions
+- Does not connect to the internet
+- Contains no advertising
+- Does not collect or store data
