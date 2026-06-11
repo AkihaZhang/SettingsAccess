@@ -1,0 +1,46 @@
+name: Android
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Build and lint
+        run: ./gradlew lint assembleDebug assembleRelease --console=plain
+
+      - name: Verify universal APK
+        shell: bash
+        run: |
+          apk="app/build/outputs/apk/debug/app-debug.apk"
+          if unzip -Z1 "$apk" | grep -q '^lib/'; then
+            echo "Unexpected native libraries found in $apk"
+            exit 1
+          fi
+
+      - name: Upload installable APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: SettingsAccess-universal-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
